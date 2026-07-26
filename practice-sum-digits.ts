@@ -145,3 +145,46 @@ function mapAndReduceSum(arr: string[]): number {
 console.log(mapAndReduceSum(["1", "2", "3"])); // Expected: 6
 console.log(mapAndReduceSum(["10", "20"]));    // Expected: 30
 
+// ==========================================
+// PRACTICE: Array.prototype.filter()
+// ==========================================
+
+// --- TASK 5: Get Even Numbers ---
+// Task: Return a new array with ONLY even numbers.
+// Example: [1, 2, 3, 4, 5, 6] -> [2, 4, 6]
+function getEvenNumbers(numbers: number[]): number[] {
+  return numbers.filter((item) => {
+    return item % 2 == 0
+  })
+}
+
+// Quokka check:
+console.log(getEvenNumbers([1, 2, 3, 4, 5, 6])); // Expected: [2, 4, 6]
+console.log(getEvenNumbers([10, 15, 20, 25]));   // Expected: [10, 20]
+
+// --- TASK 2: Filter Long Words ---
+// Task: Return a new array with words that have MORE than 3 characters.
+// Example: ["a", "cat", "banana"] -> ["banana"]
+function filterLongWords(words: string[]): string[] {
+  return words.filter((item) => {
+    return item.length > 3
+  })
+}
+
+// Quokka check:
+console.log(filterLongWords(["a", "cat", "banana", "tree"])); // Expected: ["banana", "tree"]
+console.log(filterLongWords(["js", "react", "ts", "node"]));   // Expected: ["react", "node"]
+
+// --- TASK 3: Filter + Map + Reduce ---
+// Task: Sum of the squares of all positive numbers.
+// Process: [-2, 3, 4] -> keep positive [3, 4] -> square them [9, 16] -> sum them -> 25
+function sumOfPositiveSquares(numbers: number[]): number {
+  return numbers.filter((item) => item > 0).map((item) => item ** 2).reduce((acc, current) => {
+    return acc + current
+  })
+}
+
+// Quokka check:
+console.log(sumOfPositiveSquares([-2, 3, 4]));   // Expected: 25 (3^2 + 4^2 = 9 + 16 = 25)
+console.log(sumOfPositiveSquares([1, -4, 7, 12])); // Expected: 194 (1 + 49 + 144 = 194)
+
