@@ -158,3 +158,160 @@ console.log(sumDigits(10));  // Expected: 1
 console.log(sumDigits(99));  // Expected: 18
 console.log(sumDigits(-32)); // Expected: 5
 
+
+// Task: Convert an array of 0s and 1s representing a binary number to an integer.
+// Example: [0, 1, 0, 1] -> 5
+
+export function binaryArrayToNumber(arr: number[]): number {
+  return arr.reduce((acc, current) => {
+    return acc * 2 + current
+  })
+}
+
+// Quokka check:
+console.log(binaryArrayToNumber([0, 0, 0, 1])); // Expected: 1
+console.log(binaryArrayToNumber([0, 0, 1, 0])); // Expected: 2
+console.log(binaryArrayToNumber([0, 1, 0, 1])); // Expected: 5
+console.log(binaryArrayToNumber([1, 1, 1, 1])); // Expected: 15
+
+
+// Task: Filter the array `birds` to remove all strings present in `geese`.
+
+export function gooseFilter(birds: string[]): string[] {
+  const geese: string[] = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  for(let i = 0; i < birds.length; i++){
+    
+  }
+  // Your code here
+}
+
+// Quokka check:
+console.log(gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]));
+// Expected output: ["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+
+console.log(gooseFilter(["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]));
+// Expected output: []
+
+export function position(alphabet: string): string {
+  let str = "abcdefghijklmnopqrstuvwxyz"
+  let arr = str.split('')
+  let result = ''
+  
+  for(let i = 0; i < arr.length; i++){
+    if(alphabet == arr[i]){
+      result += i + 1
+    }
+  }
+
+  return `Position of alphabet: ${result}`;
+}
+
+// Проверки для Quokka:
+console.log(position("a")); // Ожидается: "Position of alphabet: 1"
+console.log(position("z")); // Ожидается: "Position of alphabet: 26"
+console.log(position("e")); // Ожидается: "Position of alphabet: 5"
+
+// You are given an array of integer pairs [on, off]. Each pair represents the number of people who get on the bus (first item) and the number of people who get off the bus (second item) at a stop.
+
+// Return the total number of people remaining on the bus after the last stop.
+
+export function number(busStops: [number, number][]): number {
+  let result = 0
+let res = 0
+
+  for(let i = 0; i < busStops.length; i++){
+    result += busStops[i][0]
+    res += busStops[i][1]
+  }
+    return result - res
+
+} 
+// Проверки для Quokka:
+console.log(number([[10, 0], [3, 5], [5, 8]])); // Ожидается: 5
+console.log(number([[3, 0], [9, 1], [4, 10], [12, 2], [6, 1], [7, 10]])); // Ожидается: 17
+console.log(number([[0, 0]])); // Ожидается: 0
+
+
+export const summation = (num: number): number => {
+  let res = 0
+for(let i = 0;  i <= num; i++){
+ res +=i
+}return res
+  
+}
+
+console.log(summation(1)); // Expected: 1
+console.log(summation(2)); // Expected: 3 (1 + 2)
+console.log(summation(8)); // Expected: 36 (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8)
+
+
+export const addLength = (str: string): string[] => {
+  const result = str.split(' ')
+  
+  for(let i = 0; i < result.length; i++){
+    let num = 0
+    for(let j = 0; j < result[i].length; j++){
+       num += 1
+       
+    }
+    result[i] = result[i] + ' ' + num;
+  } 
+  return result
+}
+
+console.log(addLength('apple ban')); // Expected: ["apple 5", "ban 3"]
+console.log(addLength('you will win')); // Expected: ["you 3", "will 4", "win 3"]
+
+export class Kata {
+  static validatePin(pin: string): boolean {
+    if (pin.length === 4 && Number(pin)){
+      return true
+    } else {
+      return false
+    }
+     
+  }
+}
+
+console.log(Kata.validatePin("1234")); // Expected: true
+console.log(Kata.validatePin("12345")); // Expected: false
+console.log(Kata.validatePin("a234")); // Expected: false
+console.log(Kata.validatePin("123456")); // Expected: true
+console.log(Kata.validatePin("-1234")); // Expected: false
+console.log(Kata.validatePin("1.234")); // Expected: false
+
+// Task: Powers of 2 (8 kyu)
+// Complete the function that takes a non-negative integer n as input,
+// and returns a list of all the powers of 2 with the exponent ranging from 0 to n (inclusive).
+
+export function powersOfTwo(n: number): number[] {
+    let result: number[] = []
+  for(let i = 0; i <= n; i++){
+    result.push(2 ** i);
+    
+  }
+  return result;
+  
+}
+
+// Quokka.js test cases
+console.log('n = 0:', powersOfTwo(0)); // Expected output: [1]
+console.log('n = 1:', powersOfTwo(1)); // Expected output: [1, 2]
+console.log('n = 4:', powersOfTwo(4)); // Expected output: [1, 2, 4, 8, 16]
+
+// Task: Jaden Casing Strings (7 kyu)
+// Convert strings to how they would be written by Jaden Smith (capitalize every word).
+
+interface String {
+  toJadenCase(): string;
+}
+
+String.prototype.toJadenCase = function (this: string): string {
+  const a: string[] = this.split(' ')
+  return a[0].toUpperCase() + a.slice(1);
+};
+
+// Quokka.js test cases
+const testPhrase = "How can mirrors be real if our eyes aren't real";
+console.log(testPhrase.toJadenCase());
+// Expected: "How Can Mirrors Be Real If Our Eyes Aren't Real"

@@ -188,3 +188,318 @@ function sumOfPositiveSquares(numbers: number[]): number {
 console.log(sumOfPositiveSquares([-2, 3, 4]));   // Expected: 25 (3^2 + 4^2 = 9 + 16 = 25)
 console.log(sumOfPositiveSquares([1, -4, 7, 12])); // Expected: 194 (1 + 49 + 144 = 194)
 
+// ============================================================================
+// PRACTICE: String Manipulation & Array Mapping (Path to Jaden Case)
+// ============================================================================
+
+// --- TASK 1: Capitalize First Letter ---
+// Task: Take a single word as input, and return it with only its first letter capitalized.
+// Hint: Use index [0] and string concatenation.
+
+function capitalizeFirstLetter(word: string): string {
+  
+  return word[0].toUpperCase() + word.slice(1);
+}
+
+// Quokka check:
+console.log(capitalizeFirstLetter("typescript")); // Expected: "Typescript"
+console.log(capitalizeFirstLetter("hello"));      // Expected: "Hello"
+
+// --- TASK 2: Get Word Tail ---
+// Task: Take a word and return all characters except the first one.
+// Hint: Use the .slice() method.
+
+function getWordTail(word: string): string {
+  // Your code here
+  return word.slice(1);
+}
+
+// Quokka check:
+console.log(getWordTail("typescript")); // Expected: "ypescript"
+console.log(getWordTail("code"));       // Expected: "ode"
+
+// --- TASK 3: Capitalize Array of Words ---
+// Task: Take an array of words and return a new array where each word has its first letter capitalized.
+// Hint: Combine your logic from Task 1 and Task 2 inside a .map() loop.
+
+function capitalizeWordsArray(words: string[]): string[] {
+  
+
+  
+  return [];
+}
+
+// --- TASK 1.1: Get First and Last Elements ---
+// Task: Take an array of strings. Return a new string in the format: "First: [first_item], Last: [last_item]".
+// Hint: Use index [0] for the first item, and [array.length - 1] for the last item.
+
+function getFirstAndLast(arr: string[]): string {
+  
+  return `First: ${arr[0]}, Last: ${arr[arr.length - 1]} `;
+}
+
+// Quokka check:
+console.log(getFirstAndLast(["apple", "banana", "orange"])); // Expected: "First: apple, Last: orange"
+console.log(getFirstAndLast(["typescript", "javascript"]));  // Expected: "First: typescript, Last: javascript"
+
+
+// --- TASK 1.2: Filter Long Words ---
+// Task: Take an array of strings. Return a new array containing only words that have more than 3 characters.
+// Hint: Create an empty array `const result: string[] = []`. 
+// Loop through the input array using a classic `for` loop or `for...of` loop.
+// Use `result.push(word)` to add matching words.
+
+function filterLongWords2(arr: string[]): string[] {
+ const result: string[] = [];
+
+ for(let i = 0; i < arr.length; i++){
+  if(arr[i].length > 3){
+    result.push(arr[i])
+  }
+ }
+  return result;
+}
+
+// Quokka check:
+console.log(filterLongWords2(["app", "banana", "it", "code"])); // Expected: ["banana", "code"]
+console.log(filterLongWords2(["ts", "js", "html", "css"]));     // Expected: ["html"]
+
+// --- TASK: Double Numbers Manual ---
+// Task: Take an array of numbers. Return a new array where each number is multiplied by 2.
+// Hint: Create an empty array `const doubled: number[] = []`.
+// Loop through the input array, multiply each number by 2, and .push() it into `doubled`.
+// Don't forget to return the correct array at the end!
+
+function doubleNumbersManual(arr: number[]): number[] {
+  const result: number[] = [];
+  for(let i = 0; i < arr.length; i++){
+    result.push(arr[i] * 2) 
+  }
+  return result;
+}
+
+// Quokka check:
+console.log(doubleNumbersManual([1, 2, 3]));   // Expected: [2, 4, 6]
+console.log(doubleNumbersManual([10, 20, 30])); // Expected: [20, 40, 60]
+
+// --- TASK: Double Numbers with Map ---
+// Task: Take an array of numbers. Return a new array where each number is multiplied by 2 using .map().
+// Hint: Do not use 'for' loop or '.push()'. Use 'return arr.map(...)' directly.
+
+function doubleNumbersWithMap(arr: number[]): number[] {
+  
+  return arr.map((item) => {
+    return item * 2
+  });
+}
+
+// Quokka check:
+console.log(doubleNumbersWithMap([1, 2, 3]));   // Expected: [2, 4, 6]
+console.log(doubleNumbersWithMap([10, 20, 30])); // Expected: [20, 40, 60]
+
+
+// --- TASK: Convert Array of Strings to Uppercase ---
+// Task: Take an array of strings and return a new array where all words are fully in uppercase.
+// Example: ["hello", "world"] -> ["HELLO", "WORLD"]
+
+
+// APPROACH 1: Algorithmic (using classic 'for' loop and '.push()')
+function uppercaseStringsLoop(arr: string[]): string[] {
+  const result: string[] = [];
+  for(let i = 0; i < arr.length; i++){
+    result.push(arr[i].toUpperCase())
+  }
+  return result;
+}
+
+
+// APPROACH 2: Method-based (using '.map()' with the short one-line syntax)
+function uppercaseStringsMap(arr: string[]): string[] {
+  // Your code here
+  return arr.map(item => item.toUpperCase());
+}
+
+
+// Quokka check:
+console.log(uppercaseStringsLoop(["ts", "js"])); // Expected: ["TS", "JS"]
+console.log(uppercaseStringsMap(["ts", "js"]));  // Expected: ["TS", "JS"]
+
+// --- TASK: Capitalize Words in Array ---
+// Task: Take an array of words and return a new array where each word has its first letter capitalized.
+// Example: ["learn", "typescript"] -> ["Learn", "Typescript"]
+
+
+// APPROACH 1: Algorithmic (using classic 'for' loop, index [0], '.slice(1)' and '.push()')
+function capitalizeWordsLoop(arr: string[]): string[] {
+  const result: string[] = [];
+  for(let i = 0; i < arr.length; i++){
+    result.push(arr[i][0].toUpperCase() + arr[i].slice(1))
+  }
+  return result;
+}
+
+
+// APPROACH 2: Method-based (using '.map()' and one-line short syntax)
+// Hint: Inside the map, do: word[0].toUpperCase() + word.slice(1)
+function capitalizeWordsMap(arr: string[]): string[] {
+  
+  return arr.map(item => item[0].toUpperCase() + item.slice(1));
+}
+
+
+// Quokka check:
+console.log(capitalizeWordsLoop(["quokka", "is", "awesome"])); // Expected: ["Quokka", "Is", "Awesome"]
+console.log(capitalizeWordsMap(["quokka", "is", "awesome"]));  // Expected: ["Quokka", "Is", "Awesome"]
+
+
+// ============================================================================
+// MAIN TASK: Jaden Casing Strings (7 kyu)
+// ============================================================================
+
+interface String {
+  toJadenCase(): string;
+}
+
+// Hint: Inside this function, 'this' refers to the original string.
+// You need to:
+// 1. Split 'this' into words.
+// 2. Capitalize each word (using one of the approaches we practiced).
+// 3. Join them back into a single string and return it.
+
+String.prototype.toJadenCase = function (this: string): string {
+  // Your code here
+  return this.split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ');
+};
+
+// Quokka.js check:
+const quote = "How can mirrors be real if our eyes aren't real";
+console.log(quote.toJadenCase()); 
+// Expected: "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
+
+// Task: Maximum Length Difference (7 kyu)
+// Find max(abs(length(x) - length(y))) where x is from a1 and y is from a2.
+// If a1 or a2 are empty, return -1.
+
+export const mxdiflg = (a1: string[], a2: string[]): number => {
+ if (a1.length === 0 || a2.length === 0) {
+    return -1;
+  }
+
+  let lenA1 = a1.map(item => item.length)
+  let lenA2 = a2.map(item => item.length)
+
+  let resA1max = Math.max(...lenA1)
+  let resA2max = Math.max(...lenA2)
+
+  let resA1mi = Math.min(...lenA1)
+  let resA2mi = Math.min(...lenA2)
+
+  let res1 = Math.abs(resA1max - resA2mi)
+  let res2 = Math.abs(resA2max - resA1mi)
+
+  let result = Math.max(res2,res1)
+  
+  return result;
+};
+
+// Quokka.js check
+const s1 = ["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknbxy", "yxpx"];
+const s2 = ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwmmww"];
+console.log(mxdiflg(s1, s2)); // Expected: 13
+console.log(mxdiflg([], s2)); // Expected: -1 (edge case)
+
+// --- TASK: Find Min and Max Lengths ---
+// Task: Take an array of strings. Return an object with the min and max string lengths.
+// Example: ["a", "abc", "bb"] -> { min: 1, max: 3 }
+
+
+// APPROACH 1: Algorithmic (using a classic 'for' loop)
+// Hint: Start with min = Infinity (or arr[0].length) and max = 0 (or arr[0].length)
+function findMinMaxLoop(arr: string[]): { min: number; max: number } {
+  
+     let resMin = arr[0].length
+     let resMax = arr[0].length
+
+     for(let i = 0; i < arr.length; i++){
+      const currentLength = arr[i].length;
+      if(currentLength < resMin){
+         resMin = currentLength 
+      } else if (currentLength > resMax){
+        resMax = currentLength  
+      }
+     
+
+  }
+  return { min: resMin, max: resMax };
+}
+
+
+// APPROACH 2: Method-based (using modern JS/TS methods)
+// Hint: Convert strings to lengths using '.map(s => s.length)', 
+// then use 'Math.min(...lengths)' and 'Math.max(...lengths)'
+function findMinMaxMethods(arr: string[]): { min: number; max: number } {
+  let res = arr.map(item => item.length)
+  let mRes = Math.min(...res)
+  let maxRes = Math.max(...res)
+  return { min: mRes, max: maxRes };
+}
+
+
+// Quokka check:
+const testArr = ["hoqq", "bbllkw", "oox", "ejjuyyy"];
+console.log(findMinMaxLoop(testArr));    // Expected: { min: 3, max: 7 }
+console.log(findMinMaxMethods(testArr)); // Expected: { min: 3, max: 7 }
+
+// --- TASK: Sum of Array Numbers ---
+// Task: Take an array of numbers and return their sum.
+// Example: [1, 2, 3] -> 6
+
+
+// APPROACH 1: Algorithmic (using a classic 'for' loop)
+function sumArrayLoop(arr: number[]): number {
+  let result = 0
+  for(let i = 0; i < arr.length; i++){
+result += arr[i]
+  }
+  return result;
+}
+
+
+// APPROACH 2: Method-based (using '.reduce()')
+// Hint: reduce takes a function (accumulator, current) => accumulator + current, 
+// and a starting value of 0 as the second argument: arr.reduce((acc, curr) => ..., 0)
+function sumArrayReduce(arr: number[]): number {
+  
+  return arr.reduce((acc, current) => {
+    return acc + current
+  });
+}
+
+
+// Quokka check:
+console.log(sumArrayLoop([1, 2, 3, 4]));   // Expected: 10
+console.log(sumArrayReduce([1, 2, 3, 4])); // Expected: 10
+
+// ============================================================================
+// MAIN TASK: Calculate average (8 kyu)
+// ============================================================================
+
+export function findAverage(array: number[]): number {
+  // 1. Edge Case: If array is empty, return 0
+  if (array.length === 0) {
+    return 0;
+  }
+
+  // 2. Calculate the sum using reduce (you can use the short syntax!)
+  const sum = array.reduce((acc, current) => acc + current)
+
+  // 3. Return sum divided by array length
+  return sum / array.length; // Replace with your logic
+}
+
+// Quokka.js check
+console.log(findAverage([1, 1, 1])); // Expected: 1
+console.log(findAverage([1, 2, 3])); // Expected: 2
+console.log(findAverage([]));        // Expected: 0
+
