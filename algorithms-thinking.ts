@@ -133,3 +133,48 @@ console.log(insertionSort([5, 4, 3, 2, 1]));      // Expected: [1, 2, 3, 4, 5]
 console.log(insertionSort([1, 2, 3, 4, 5]));      // Expected: [1, 2, 3, 4, 5]
 console.log(insertionSort([-3, 0, 2, -10]));      // Expected: [-10, -3, 0, 2]
 console.log(insertionSort([42]));                 // Expected: [42]
+
+// --- TRAINING TASK 1: Flatten Array with Loops ---
+// Task: Take a two-dimensional array of numbers and return a flat one-dimensional array.
+// Example: [[1, 2], [3, 4]] -> [1, 2, 3, 4]
+
+function flattenLoop(inputArray: number[][]): number[] {
+  const result: number[] = [];
+
+  
+  for (let i = 0; i < inputArray.length; i++) {
+    
+
+    for (let j = 0; j < inputArray[i].length; j++) {
+      result.push(inputArray[i][j])
+
+    }
+  }
+
+  return result;
+}
+
+// Quokka check:
+console.log(flattenLoop([[1, 2], [3, 4]]));         // Expected: [1, 2, 3, 4]
+console.log(flattenLoop([[3, 2, 1], [], [4, 6, 5]])); // Expected: [3, 2, 1, 4, 6, 5]
+
+// --- TRAINING TASK 2: Sort Numbers Ascending ---
+// Task: Take an array of numbers and return a new sorted array in ascending order.
+// Crucial: Make sure it sorts numbers like 100 correctly!
+// Hint: Use '.sort((a, b) => a - b)'
+
+function sortNumbers(arr: number[]): number[] {
+
+  // To avoid mutating the original array, we can copy it first using spread operator [...arr]
+  const arrayCopy = [...arr];
+  let result = arrayCopy.sort((a, b) => a - b);
+  return result;
+}
+  
+  // Your code here: sort 'arrayCopy' and return it
+  
+  
+
+// Quokka check:
+console.log(sortNumbers([3, 2, 1, 100, 4, 25])); 
+// Expected output: [1, 2, 3, 4, 25, 100] 
